@@ -1,6 +1,6 @@
 blueprint:
   name: Frigate NVR - Notificaciones de Telegram
-  description: Permite crear automatizaciones para recibir capturas y clips desde Frigate NVR
+  description: Permite crear automatizaciones para recibir capturas y clips desde Frigate NVR, en Telegram
   domain: automation
   input:
     camera:
@@ -14,8 +14,8 @@ blueprint:
         '
     notification:
       name: Notification
-      description: 'Select "true" to disable notification, lave "false" to receive
-        notification.
+      description: 'Selecciona "true" para enviar notificaciones silenciosas, o "false" para anunciarlas normalmente.
+      El valor predeterminado es "false".
         '
       selector:
         select:
@@ -24,36 +24,36 @@ blueprint:
           - 'false'
       default: 'false'
     base_url:
-      name: (Optional) Base URL
-      description: The external url for your Home Assistant instance. This will default
-        to a relative URL and will open the clips in the app instead of the browser,
-        which may cause issues on some devices.
+      name: (Opcional) URL Base
+      description: La dirección externa de la instancia de Home Assistant. Por defecto
+        se usará una URL relativa, y abrirá los clips en la app (en lugar del navegador),
+        lo que podría causar problemas con algunos dispositivos.
       default: ''
     zone_filter:
-      name: (Optional) Zone Filter
-      description: Only notify if object has entered a defined zone.
+      name: (Opcional) Filtro de zonas
+      description: Solo notificar si el objeto se encuentra en una zona en específico.
       default: false
       selector:
         boolean: {}
     zones:
-      name: (Optional) Trigger Zones
-      description: A list (-) of zones you wish to recieve notifications for.
+      name: (Opcional) Activación por zonas
+      description: Una lista (-) de zonas de las que se enviarán notificaciones.
       default: []
       selector:
         object: {}
     labels:
-      name: (Optional) Trigger Objects
-      description: A list (-) of objects you wish to recieve notifications for.
+      name: (Opcional) Activación por objetos
+      description: Una lista (-) de objetos de los que se enviarán notificaciones.
       default: []
       selector:
         object: {}
     presence_filter:
-      name: (Optional) Presence Filter
-      description: Only notify if selected presence entity is not "home".
+      name: (Opcional) Filtro de presencia
+      description: Solo notificar si la entidad de presencia no se encuentra en casa ("home").
       default: ''
       selector:
         entity: {}
-  source_url: https://gist.github.com/NdR91/5486a1e55101e062c48545395b7dd9a3
+  source_url: https://github.com/JuanZagoR/Blueprint_Frigate-Telegram-Notification-ES/blob/main/frigate_telegram_notification-ES.yaml
 mode: single
 max_exceeded: silent
 trigger:
